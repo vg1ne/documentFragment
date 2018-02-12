@@ -1,5 +1,5 @@
-<table>
+<table  class="table table-striped table-bordered">
   <tr *ngFor="let row of rows">
-    <td *ngFor="let cell of row">{{cell.rowIndex + ' ' + cell.colIndex}}</td>
+    <td *ngFor="let cell of row">{{cell.rowIndex + '|' + cell.colIndex}}</td>
   </tr>
 </table>

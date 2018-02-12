@@ -1,34 +1,44 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ITableConfig} from "../../models/table-config.model";
-import {ICell} from "../../models/cell.model";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, AfterContentInit {
   @Input() config: ITableConfig;
-  private rows: ICell[];
+  private table: DocumentFragment;
 
+  constructor(private elementRef: ElementRef) {
 
-  constructor() {
-    this.rows = this.generateTable();
+  }
+
+  ngAfterContentInit() {
+
   }
 
   ngOnInit() {
+    this.table = this.generateTable();
+    this.elementRef.nativeElement.appendChild(this.table)
   }
 
   private generateTable() {
-    const rows = [];
+    const fragment = document.createDocumentFragment();
+    const table = document.createElement('table');
+    table.className = 'table table-striped table-bordered'
     for(let i = 0; i< this.config.rows;i++){
-      const row = [];
+      const rowElement = document.createElement('tr');
       for(let j = 0; j< this.config.cols;j++){
-        row.push({rowIndex: i, colIndex: j})
+        const cellElement = document.createElement('td');
+        cellElement.innerHTML = `${i}|${j}`
+        rowElement.appendChild(cellElement)
       }
-      rows.push(row);
+      table.appendChild(rowElement)
     }
-    return rows;
+    fragment.appendChild(table);
+    return fragment;
   }
 }
 

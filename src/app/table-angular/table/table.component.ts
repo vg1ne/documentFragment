@@ -9,8 +9,7 @@ import {ICell} from "../../models/cell.model";
 })
 export class TableComponent implements OnInit {
   @Input() config: ITableConfig;
-  private rows: ICell[];
-
+  rows: ICell[];
 
   constructor() {
 
