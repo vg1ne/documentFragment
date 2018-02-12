@@ -5,6 +5,6 @@ import {TableFragmentContainerComponent} from "./table-fragment/table-fragment-c
 export const appRoutes: Routes = [
   {path: 'angular', component: TableAngularContainerComponent},
   {path: 'fragment', component: TableFragmentContainerComponent},
-  {path: '*', redirectTo: 'angular'}
+  {path: '', redirectTo: 'angular', pathMatch: 'full'}
   ];
 
