@@ -1,3 +1,5 @@
-<p>
-  table works!
-</p>
+<table>
+  <tr *ngFor="let row of rows">
+    <td *ngFor="let cell of row">{{cell.rowIndex + ' ' + cell.colIndex}}</td>
+  </tr>
+</table>
