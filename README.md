@@ -29,3 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 https://angular-2-training-book.rangle.io/handout/advanced-components/elementref.html
 https://angular.io/api/core/ViewContainerRef#!#createComponent-anchor
+http://dapperdeveloper.com/2014/05/05/using-document-fragments-to-append-html-to-the-dom-with-javascript/
+https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
